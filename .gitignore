@@ -1,0 +1,28 @@
+# 微信小程序开发工具生成的临时文件
+.miniprogram/
+miniprogram_npm/  # 小程序 npm 依赖（会自动安装，无需上传）
+.project  # 旧版开发者工具配置
+.sitemap.json  # 站点地图（可选，若需要上传可删除此行）
+
+# 开发者工具缓存文件
+.eslintcache  # ESLint 缓存
+*.sublime-*  # Sublime 编辑器配置
+.idea/  # IDEA 编辑器配置
+.vscode/  # VS Code 编辑器配置（包含个人设置，无需共享）
+*.swp  # Vim 缓存文件
+
+# 操作系统自动生成的文件
+.DS_Store  # Mac 系统文件
+Thumbs.db  # Windows 缩略图缓存
+
+# 构建/打包生成的文件（如果你的项目有构建步骤）
+dist/
+build/
+
+# 日志文件
+logs/
+*.log
+
+# 环境变量文件（若有敏感信息，如 API 密钥）
+.env
+.env.local

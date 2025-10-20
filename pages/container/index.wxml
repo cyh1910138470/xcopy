@@ -1,0 +1,23 @@
+<!-- container/index.wxml -->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="content-container">
+    <!-- 根据 currentPath 显示对应子组件 -->
+    <block wx:if="{{currentPath === '/pages/manage/index'}}">
+      <manage-page />  <!-- 管理页组件 -->
+    </block>
+    <block wx:elif="{{currentPath === '/pages/work/index'}}">
+      <work-page />    <!-- 工作页组件 -->
+    </block>
+    <block wx:elif="{{currentPath === '/pages/todo/index'}}">  <!-- 修正拼写错误 tode→todo -->
+      <todo-page />    <!-- 代办页组件 -->
+    </block>
+    <block wx:elif="{{currentPath === '/pages/mine/index'}}">
+      <mine-page />    <!-- 我的页组件 -->
+    </block>
+  </view>
+  <!-- 引入 TabBar 组件，绑定事件接收路径变化，并传入当前路径用于高亮 -->
+  <tabbar 
+    currentPath="{{currentPath}}" 
+    bind:tabChange="onTabChange"
+  ></tabbar>
+</scroll-view>

@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/container/index",
+    "pages/work/index",
+    "pages/todo/index",
+    "pages/mine/index",
+    "pages/manage/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

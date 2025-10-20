@@ -1,0 +1,30 @@
+<view class="tabbar-container">
+  <view class="tabbar-item" bindtap="switchTab" data-path="/pages/manage/index">
+    <view class="icon {{currentPath === '/pages/manage/index' ? 'active' : ''}}">
+      <view class="iconfont icon-management-s"></view>
+    </view>
+    <text class="{{currentPath === '/pages/manage/index' ? 'active' : ''}}">经营</text>
+  </view>
+
+  <view class="tabbar-item" bindtap="switchTab" data-path="/pages/work/index">
+    <view class="icon {{currentPath === '/pages/work/index' ? 'active' : ''}}">
+      <view class="iconfont icon-gongzuotai"></view>
+    </view>
+    <text class="{{currentPath === '/pages/work/index' ? 'active' : ''}}">工作台</text>
+  </view>
+
+  <view class="tabbar-item" bindtap="switchTab" data-path="/pages/todo/index">
+    <view class="icon {{currentPath === '/pages/todo/index' ? 'active' : ''}}">
+      <view class="iconfont icon-mti-wodedaiban"></view>
+    </view>
+    <text class="{{currentPath === '/pages/todo/index' ? 'active' : ''}}">待办</text>
+  </view>
+
+  <!-- 右侧导航项 -->
+  <view class="tabbar-item" bindtap="switchTab" data-path="/pages/mine/index">
+    <view class="icon {{currentPath === '/pages/mine/index' ? 'active' : ''}}">
+      <view class="iconfont icon-wode"></view>
+    </view>
+    <text class="{{currentPath === '/pages/mine/index' ? 'active' : ''}}">我的</text>
+  </view>
+</view>

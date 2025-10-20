@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "tabbar": "/components/tabbar/tabbar",
+    "manage-page": "/pages/manage/index",
+    "work-page": "/pages/work/index",
+    "todo-page": "/pages/todo/index",
+    "mine-page": "/pages/mine/index"
+  }
+}

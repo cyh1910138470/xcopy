@@ -1,0 +1,64 @@
+@import "../../icon/iconfont.wxss";
+.tabbar-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100rpx;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  position: fixed;  /* 固定在底部 */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;  /* 避免被页面内容遮挡 */
+}
+
+.tabbar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;  /* 平均分配空间 */
+}
+
+.icon {
+  font-size: 36rpx;
+  color: #999;
+}
+
+.icon.active {
+  color: #0040FF;  /* 选中颜色 */
+}
+
+.tabbar-item text {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+.tabbar-item text.active {
+  color: #0040FF;
+}
+
+/* 凸起按钮样式 */
+.tabbar-add {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.add-btn {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #ff6600;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  position: absolute;
+  bottom: 20rpx;  /* 向上凸起 */
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.2);
+}
