@@ -1,0 +1,18 @@
+<!--components/topbar/index.wxml-->
+<view class="container">
+  <van-dropdown-menu custom-class="my-dropdown-menu">
+    <!-- 循环 dropdownList，生成多个下拉选项 -->
+    <van-dropdown-item 
+      value="{{ value }}"  
+      options="{{ options }}"  
+      bind:change="onDropdownChange" 
+    />
+    <van-button 
+    type="primary" 
+    bind:click="handleScan"
+    class="scan-btn"
+  >
+    打开相机扫码
+  </van-button>
+  </van-dropdown-menu>
+</view>

@@ -29,7 +29,14 @@
     "swc": false,
     "disableSWC": true,
     "disableUseStrict": false,
-    "useCompilerPlugins": false
+    "useCompilerPlugins": false,
+    "packNpmManually": true, 
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "./package.json",  
+        "miniprogramNpmDistDir": "./miniprogram/" 
+      }
+    ]
   },
   "condition": {},
   "editorSetting": {

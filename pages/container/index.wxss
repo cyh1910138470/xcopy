@@ -2,54 +2,49 @@
 
 /* 页面整体容器（占满屏幕） */
 page {
-  height: 100%;
-  background-color: #f5f5f5; /* 全局背景色，可根据需求修改 */
-  padding-top: 50px;
-  overflow: hidden; /* 避免页面整体滚动 */
+  height: 100vh; /* 用 vh 更可靠，直接对应屏幕高度 */
+  background-color: #f5f5f5;
+  padding-top: 100rpx; /* 顶部固定内边距 */
+  overflow: hidden;
   box-sizing: border-box;
-  /* 背景叠加：水平渐变 + 垂直渐变 */
+  /* 背景渐变（只显示顶部25%） */
   background: 
-    /* 上层：从上到下 浅→透明（叠加后让底部变纯白） */
     linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%),
-    /* 底层水平渐变（左浅绿 → 右浅蓝，蓝色更浅） */
-    linear-gradient(to right, #d1ead8, #f0f7ff); /* 右侧蓝色改为 #f0f7ff（更浅） */
-  
-  /* 只显示顶部1/4高度 */
+    linear-gradient(to right, #d1ead8, #f0f7ff);
   background-size: 100% 25%;
   background-repeat: no-repeat;
   background-color: #ffffff; /* 下方纯白 */
 }
 
-/* 滚动容器（占满屏幕，减去 TabBar 高度） */
+/* 滚动容器（减去顶部和底部固定高度） */
 .scrollarea {
   width: 100%;
-  height: 100%; /* 初始占满屏幕 */
+  /* 屏幕高度 - 顶部padding(100rpx) - tabbar高度(100rpx) */
+  height: calc(100vh - 100rpx - 100rpx); 
   box-sizing: border-box;
-  padding-bottom: 100rpx; /* 预留 TabBar 高度（关键：避免内容被遮挡） */
 }
 
-/* 内容容器（自适应滚动区域） */
+/* 内容容器（填满滚动区域） */
 .content-container {
   width: 100%;
-  min-height: calc(100% - 100rpx); /* 确保内容区高度足够滚动 */
+  min-height: 100%; /* 确保内容区高度足够 */
 }
 
 /* 自定义 TabBar 固定在底部 */
 .tabbar {
-  position: fixed; /* 固定定位，不受滚动影响 */
-  bottom: 0; /* 贴紧底部 */
+  position: fixed;
+  bottom: 0;
   left: 0;
   right: 0;
-  height: 100rpx; /* 与 scrollarea 的 padding-bottom 保持一致 */
-  z-index: 999; /* 确保在最上层，不被内容遮挡 */
-  background-color: #fff; /* TabBar 背景色，可修改 */
-  border-top: 1px solid #eee; /* 顶部边框，可选 */
+  height: 100rpx;
+  z-index: 999;
+  background-color: #fff;
+  border-top: 1px solid #eee;
 }
 
-/* 子页面组件容器（避免子页面样式冲突） */
-index-page, work-page, todo-page, mine-page {
+/* 所有子页面组件样式（确保占满内容区） */
+index-page, work-page, todo-page, mine-page, manage-page {
   display: block;
   width: 100%;
-  min-height: 100%; /* 确保子页面占满内容区 */
+  min-height: 100%; /* 关键：占满父容器 */
 }
-

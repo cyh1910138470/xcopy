@@ -1,66 +1,27 @@
 // pages/manage/index.js
-Page({
-
-  /**
-   * 页面的初始数据
-   */
+Component({
   data: {
-
+    containerHeight: 'auto'
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  lifetimes: {
+    ready() {
+      console.log('组件 ready 执行');
+      // 1. 获取页面实例（关键：从页面根节点开始查找）
+      const pages = getCurrentPages();
+      const currentPage = pages[pages.length - 1]; // 当前页面（container 页面）
+      
+      // 2. 在页面实例的上下文查找 #parent-container
+      const query = wx.createSelectorQuery().in(currentPage);
+      query.select('#parent-container').boundingClientRect(rect => {
+        if (rect) {
+          console.log('父容器高度：', rect.height);
+          this.setData({
+            containerHeight: rect.height + 'px'
+          });
+        } else {
+          console.log('未找到 #parent-container');
+        }
+      }).exec();
+    }
   }
-})
+});

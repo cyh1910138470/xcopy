@@ -1,1 +1,4 @@
-/* pages/mine/index.wxss */
+.container {
+  background-color: skyblue;
+  height: calc(100%-150rpx);
+}

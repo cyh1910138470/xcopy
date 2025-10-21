@@ -2,5 +2,6 @@
   "usingComponents": {
     "tabbar": "/components/tabbar/tabbar"
   },
-  "component": true
+  "component": true,
+  "styleIsolation": "isolated" 
 }

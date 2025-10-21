@@ -1,0 +1,17 @@
+/* components/topbar/index.wxss */
+.container {
+  height: 60rpx;
+  background-color: #fff;
+  display: flex;
+}
+
+.my-dropdown-menu {
+  /* 若想控制容器整体高度，可配合子项高度调整（可选） */
+  height: 60rpx !important; 
+  /* 去掉容器默认的上下间距（如果有） */
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  border: none;
+  background-color: transparent !important; /* 核心：透明背景 */
+}
+

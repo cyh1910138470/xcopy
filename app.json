@@ -4,7 +4,8 @@
     "pages/work/index",
     "pages/todo/index",
     "pages/mine/index",
-    "pages/manage/index"
+    "pages/manage/index",
+    "components/topbar/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -12,8 +13,18 @@
     "navigationBarBackgroundColor": "#ffffff",
     "navigationStyle": "custom"
   },
-  "style": "v2",
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-nav-bar": "@vant/weapp/nav-bar/index",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index"
+  }
 }

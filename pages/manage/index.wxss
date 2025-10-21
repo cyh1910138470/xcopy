@@ -1,1 +1,13 @@
 /* pages/manage/index.wxss */
+.container {
+  height: 100%;
+  background-color: springgreen;
+  margin: 0;
+  padding: 0;
+  /* 确保内容超出时不收缩（可选） */
+  min-height: 100%; 
+  /* 避免滚动条干扰（如果不需要滚动） */
+  overflow: hidden;
+  /* 加个背景色，方便观察是否占满 */
+  background-color: lightgreen;
+}

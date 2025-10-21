@@ -1,2 +1,5 @@
 <!--pages/manage/index.wxml-->
-<text>pages/manage/index.wxml</text>
+<view class="container" style="height: {{containerHeight}};">
+  <topbar></topbar>
+  pages/manage/index.wxml
+</view>
