@@ -1,0 +1,41 @@
+/* components/topbar/index.wxss */
+@import "../../icon/iconfont.wxss";
+.container {
+  width: 70%;
+  height: 60rpx;
+  /* background-color: #fff; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.my-dropdown-menu {
+  /* 若想控制容器整体高度，可配合子项高度调整（可选） */
+  height: 60rpx !important; 
+  /* 去掉容器默认的上下间距（如果有） */
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  background-color: transparent !important; /* 核心：透明背景 */
+  box-shadow: none !important;
+}
+.my-dropdown-item {
+}
+.container .leftbox {
+  width: 80%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.boss {
+  border: 1rpx solid #FFA541;
+  height: fit-content;
+  width: fit-content;
+  font-size: 12px;
+  box-sizing: border-box;
+  color: #FFA541;
+  padding: 3rpx 5rpx;
+  border-radius: 5rpx;
+  background-color: #F8F3EA;
+}
+

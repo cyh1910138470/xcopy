@@ -1,2 +1,5 @@
 <!--pages/work/index.wxml-->
-<text>pages/work/index.wxml</text>
+<view class="container">
+  <topbar></topbar>
+  pages/work/index.wxml
+</view>

@@ -1,6 +1,6 @@
 <!-- container/index.wxml -->
 <scroll-view class="scrollarea" scroll-y type="list">
-  <view class="content-container">
+  <view id="parent-container" class="content-container">
     <!-- 根据 currentPath 显示对应子组件 -->
     <block wx:if="{{currentPath === '/pages/manage/index'}}">
       <manage-page />  <!-- 管理页组件 -->

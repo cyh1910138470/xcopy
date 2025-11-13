@@ -12,7 +12,12 @@
     "minified": true,
     "enhance": true,
     "showShadowRootInWxmlPanel": true,
-    "packNpmRelationList": [],
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "./package.json",
+        "miniprogramNpmDistDir": "./miniprogram/"
+      }
+    ],
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -21,7 +26,7 @@
     "compileWorklet": false,
     "uglifyFileName": false,
     "uploadWithSourceMap": true,
-    "packNpmManually": false,
+    "packNpmManually": true,
     "minifyWXSS": true,
     "minifyWXML": true,
     "localPlugins": false,
@@ -36,6 +41,6 @@
     "tabIndent": "auto",
     "tabSize": 2
   },
-  "appid": "wxcb97cc21da738d3d",
+  "appid": "wx93e131f2ff63cb81",
   "simulatorPluginLibVersion": {}
 }

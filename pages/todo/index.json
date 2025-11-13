@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "tabbar": "/components/tabbar/tabbar"
+    "topbar": "/components/topbar/index"
   },
-  "component": true
+  "component": true,
+  "styleIsolation": "isolated" 
 }

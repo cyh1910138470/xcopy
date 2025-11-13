@@ -1,2 +1,13 @@
 <!--pages/mine/index.wxml-->
-<text>pages/mine/index.wxml</text>
+<view class="container">
+  <view class="title" style="height: {{statusBarHeight}}px;">
+    <view style="padding-top: {{titleTop}}px;">X管家微端</view>
+  </view>
+  <view class="usercard-c">
+    <view class="usercard"></view>
+  </view>
+  <view class="system-c">
+    <view class="system"></view>
+  </view>
+  
+</view>
