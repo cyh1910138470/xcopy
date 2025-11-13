@@ -2,4 +2,5 @@
 <view class="container">
   <topbar></topbar>
   pages/manage/index.wxml
+  <van-button bindtap="submitData">清缓存</van-button>
 </view>

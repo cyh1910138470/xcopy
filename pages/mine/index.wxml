@@ -1,13 +1,67 @@
 <!--pages/mine/index.wxml-->
 <view class="container">
+  <van-popup
+  show="{{ show }}"
+  position="bottom"
+  custom-style="height: 35%;"
+  bind:close="handleClick"
+>
+<view class="dialog">
+  <view class="title">登录</view>
+  <van-field
+    value="{{ user }}"
+    clearable
+    label="用户名"
+    placeholder="请输入用户名"
+    bind:click-icon="onClickIcon"
+    bind:input="onUserInput"
+  />
+  <van-field
+    value="{{ pass }}"
+    clearable
+    password
+    label="密码"
+    placeholder="请输入密码"
+    bind:click-icon="onClickIcon"
+    bind:input="onPassInput" 
+  />
+  <view class="buttons">
+    <view class="button left" bind:tap="handleClick">
+    取消</view>
+    <view class="button right" bind:tap="handleConfirm">
+    确定</view>
+  </view>
+</view>
+</van-popup>
+
   <view class="title" style="height: {{statusBarHeight}}px;">
     <view style="padding-top: {{titleTop}}px;">X管家微端</view>
   </view>
   <view class="usercard-c">
-    <view class="usercard"></view>
+    <view class="usercard">
+      <view class="iconfont icon-wode"></view>
+      <view wx:if="{{ username && username !== '' }}"> {{ username }} </view>
+      <view wx:else class="loginbutton" bindtap="handleClick">登录</view>
+    </view>
   </view>
   <view class="system-c">
-    <view class="system"></view>
+    <view class="system">
+      <view class="{{['menu', isactive == 1 ? 'active' : '']}}" bind:touchstart="mousedown" data-val="1"  bind:touchend="mouseup">
+        <view class="menu-in">
+          <view class="iconfont icon-gongzuotai"></view>
+          <view>报表接收开关</view>
+        </view>
+        <view> > </view>
+      </view>
+      <view class="line"></view>
+      <view class="{{['menu', isactive == 2 ? 'active' : '']}}" bind:touchstart="mousedown" data-val="2" bind:touchend="mouseup">
+        <view class="menu-in">
+          <view class="iconfont icon-management-s"></view>
+          <view>系统管理</view>
+        </view>
+        <view> > </view>
+      </view>
+    </view>
   </view>
   
 </view>

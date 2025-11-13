@@ -1,7 +1,15 @@
 // pages/manage/index.js
+import request from "../../utils/request/index";
+import md5 from 'blueimp-md5';
 Component({
   data: {
     containerHeight: 'auto'
+  },
+  methods: {
+    async submitData() {
+      console.log('submitData');
+      wx.removeStorageSync('user')
+    }
   },
   lifetimes: {
     ready() {

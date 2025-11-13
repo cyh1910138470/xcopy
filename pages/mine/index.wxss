@@ -1,3 +1,4 @@
+@import "../../icon/iconfont.wxss";
 .container {
   background-color: #fff;
   width: 100%;
@@ -18,8 +19,31 @@
   height: 240rpx;
   background-color: #fff;
   border-radius: 15rpx;
+  display: flex;
+  align-items: center;
 }
-
+.usercard > .loginbutton {
+  width: 100px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  font-size: 12px;
+  color: #fff;
+  background-color: #0040FF;
+  border-radius: 20px;
+}
+.usercard > .iconfont {
+  text-align: center;
+  width: 70px;
+  height: 70px;
+  font-size: 35px;
+  font-weight: 500;
+  line-height: 70px;
+  background-color: #E1E8FF;
+  border-radius: 35px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
 .system-c {
   width: 100%;
   height: 140rpx;
@@ -30,7 +54,63 @@
 }
 .system {
   width: 92%;
-  height: 140rpx;
+  height: 160rpx;
   background-color: #fff;
   border-radius: 15rpx;
+  box-sizing: border-box;
+  padding: 15px;
+}
+.line {
+  border-bottom: 1px solid #eee;
+  margin: 8px 0 8px 0;
+}
+.system > .menu {
+  /* background-color: red; */
+  display: flex;
+  justify-content: space-between;
+}
+.system > .menu > .menu-in {
+  display: flex;
+  align-items: center;
+}
+.system > .active {
+  background-color: #eee;
+}
+.menu-in > .iconfont {
+  margin-right: 5px;
+  color:#0097FA;
+}
+
+.dialog {
+  width: 100%;
+  height: 100%;
+}
+
+.dialog > .title {
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+}
+
+.dialog > .buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.buttons > .button {
+  width: 150px;
+  height: 40px;
+  background-color: red;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 40px;
+}
+.buttons > .left {
+  background-color: #fff;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+}
+.buttons > .right {
+  background-color: #0040FF;
+  color: #fff;
 }

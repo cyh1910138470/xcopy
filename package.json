@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vant/weapp": "^1.11.7"
+    "@vant/weapp": "^1.11.7",
+    "blueimp-md5": "^2.19.0"
   }
 }

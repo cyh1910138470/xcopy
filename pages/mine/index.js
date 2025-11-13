@@ -1,3 +1,6 @@
+import request from "../../utils/request/index";
+import md5 from 'blueimp-md5';
+
 Component({
   /**
    * 组件的属性列表（可从父组件接收参数）
@@ -11,7 +14,12 @@ Component({
    */
   data: {
     statusBarHeight: 0,
-    titleTop: 0
+    titleTop: 0,
+    show: false,
+    user: '',
+    pass: '',
+    username: '',
+    isactive: ''
   },
 
   /**
@@ -21,6 +29,7 @@ Component({
     // 组件初始化时执行（类似页面的 onLoad）
     attached() {
       this.calcStatusBarHeight();
+      this.getuserInfo();
     },
 
     // 组件初次渲染完成时执行（类似页面的 onReady）
@@ -73,6 +82,62 @@ Component({
           statusBarHeight: 40,
         });
       }
+    },
+    getuserInfo() {
+      this.setData({
+        username: wx.getStorageSync('user') ? wx.getStorageSync('user') : ''
+      })
+    },
+    onUserInput(e) {
+      this.setData({
+        user: e.detail  // 将输入框的值同步到 data.user
+      });
+    },
+    mousedown(e) {
+      console.log('tes', e.currentTarget.dataset.val);
+      this.setData({
+        isactive: e.currentTarget.dataset.val
+      })
+    },
+    mouseup() {
+      console.log('mouseup');
+      this.setData({
+        isactive: ''
+      })
+    },
+    // 同步密码输入
+    onPassInput(e) {
+      console.log('同步密码输入', e);
+      this.setData({
+        pass: e.detail  // 将输入框的值同步到 data.pass
+      });
+    },
+    handleClick() {
+      console.log('handleClickhandleClickhandleClick');
+      this.setData({
+        show: !this.data.show
+      })
+    },
+    async handleConfirm() {
+     const res = await request.post('/login', 
+      {
+        user: this.data.user,
+        pass: md5(this.data.pass)
+      }, {
+        loading: true
+      });
+      console.log('res', res);
+      this.setData({
+        show: !this.data.show
+      });
+      wx.setStorageSync('user', this.data.user)
+      this.getuserInfo();
+      wx.showToast({
+        title: '登录成功！',
+        icon: 'success', // 原生成功图标（也可用 'none' 只显示文字）
+        duration: 2000, // 弹窗显示时间（ms）
+        mask: true // 是否显示遮罩，防止点击穿透
+      });
     },
 
     // 页面原有的事件处理函数（如需保留，移至 methods 中）

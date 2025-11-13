@@ -5,7 +5,8 @@
     "pages/todo/index",
     "pages/mine/index",
     "pages/manage/index",
-    "components/topbar/index"
+    "components/topbar/index",
+    "pages/funtions/styctl/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -25,6 +26,8 @@
     "van-dialog": "@vant/weapp/dialog/index",
     "van-nav-bar": "@vant/weapp/nav-bar/index",
     "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
-    "van-dropdown-item": "@vant/weapp/dropdown-item/index"
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-toast": "@vant/weapp/toast/index"
   }
 }
