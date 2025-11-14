@@ -1,5 +1,25 @@
 <!--pages/work/index.wxml-->
 <view class="container">
   <topbar></topbar>
-  pages/work/index.wxml
+  <view class="content">
+    <view class="statecontent">
+      <view class="left">
+        <view class="iconfont icon-wode"></view>
+        <view class="text">未上班</view>
+      </view>
+      <view class="right">
+        我的分数： 0 分
+      </view>
+    </view>
+    <view class="commission"></view>
+    <view class="menus">
+      <view wx:for="{{arr}}" wx:key="name" style="display: {{item.name ? 'block' : 'none'}};" class="docker">
+          <image bind:tap="handleClick" 
+           data-name="{{item.name}}"
+           src="{{item.url}}" mode=""/>
+          <view class="text">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  
 </view>

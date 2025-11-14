@@ -1,2 +1,9 @@
 <!--pages/funtions/styctl/index.wxml-->
-<text>pages/funtions/styctl/index.wxml</text>
+<view class="container-syt">
+  <title title="{{title}}"></title>
+  
+  <view class="version">VERSION 1.1.24</view>
+  <view class="button">
+    <van-button bind:tap="handleClick">退出登录</van-button>
+  </view>
+</view>

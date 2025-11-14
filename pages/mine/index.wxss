@@ -2,6 +2,7 @@
 .container {
   background-color: #fff;
   width: 100%;
+  box-sizing: border-box;
 }
 .container .title {
   text-align: center;
@@ -50,7 +51,7 @@
   display: flex;
   background-color: #F2F3F5;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 .system {
   width: 92%;
@@ -113,4 +114,10 @@
 .buttons > .right {
   background-color: #0040FF;
   color: #fff;
+}
+.temp {
+  width: 100%;
+  height: 400px;
+  /* background-color: red; */
+  background-color: #F2F3F5 ;
 }

@@ -6,7 +6,10 @@
     "pages/mine/index",
     "pages/manage/index",
     "components/topbar/index",
-    "pages/funtions/styctl/index"
+    "pages/funtions/styctl/index",
+    "components/title/index",
+    "pages/funtions/switchs/index",
+    "pages/funtions/ceshi/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",

@@ -1,0 +1,19 @@
+/* components/title/index.wxss */
+.container {
+  width: 100vw;
+  height: 12vh;
+  background-color: #fff;
+  padding-top: 4vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title {
+position: relative;
+left: -14px;
+}
+.container image {
+  width: 30px;
+  height: 30px;
+}

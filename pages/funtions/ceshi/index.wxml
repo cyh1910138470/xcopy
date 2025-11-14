@@ -1,0 +1,16 @@
+<!--pages/funtions/styctl/index.wxml-->
+<view class="container-syt">
+  <title title=""></title>
+  <view>{{title}}</view>
+  <view>{{title}}</view>
+  <view>{{title}}</view>
+  <view>{{title}}</view>
+  <view>{{title}}</view>
+  <view>{{title}}</view>
+  <view>{{title}}</view>
+  <view>{{title}}</view>
+  <view>{{title}}</view>
+  <view>{{title}}</view>
+  <view>{{title}}</view>
+  <view>{{title}}</view>
+</view>

@@ -1,4 +1,5 @@
 /* pages/manage/index.wxss */
+@import "../../icon/iconfont.wxss";
 .container {
   height: 100%;
   margin: 0;
@@ -8,4 +9,98 @@
   /* 避免滚动条干扰（如果不需要滚动） */
   overflow: hidden;
   /* 加个背景色，方便观察是否占满 */
+  box-sizing: border-box;
+  padding-bottom: 50px;
+}
+.container .content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.container .statecontent {
+  margin-top: 15px;
+  width: 96%;
+  height: 45px;
+  background-color: #F3F7FF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0px 15px;
+  border-radius: 10px;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1); 
+}
+
+.container .content .statecontent .left {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+.container .content .statecontent .left .iconfont {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background-color: #E1E8FF;
+  border-radius: 15px;
+  margin-right: 15px;
+}
+.container .content .statecontent .left .text {
+  width: 80px;
+  height: 30px;
+  background-color: #9BA0A1;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 15px;
+}
+
+.container .content .commission {
+  margin-top: 15px;
+  width: 96%;
+  background-color: #FFFBF1;
+  height: 70px;
+  border-radius: 10px;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1); 
+}
+
+.container .content .menus {
+  margin-top: 15px;
+  width: 96%;
+  background-color: #FFFFFF;
+  height: 58vh;
+  border-radius: 10px;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1); 
+  overflow-y: auto; /* 核心：垂直滚动 */
+  -webkit-overflow-scrolling: touch; /* 解决iOS滚动卡顿 */
+  box-sizing: border-box;
+  padding-top: 20px;
+}
+.container .content .menus::-webkit-scrollbar {
+  display: none;
+}
+.container .content .menus {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.menus .docker {
+  width: 22%;
+  height: 80px;
+  /* background-color: yellowgreen; */
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+.menus .docker image {
+  width: 50px;
+  height: 50px;
+  margin-left: 15px;
+}
+.menus .docker .text {
+  font-size: 12px;
+  text-align: center;
 }

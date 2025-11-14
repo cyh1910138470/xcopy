@@ -1,0 +1,6 @@
+<!--components/title/index.wxml-->
+<view class="container">
+  <image src="/assets/pics/left.png" bind:tap="handleClick" mode=""/>
+  <view class="title">{{title}}</view>
+  <view></view>
+</view>

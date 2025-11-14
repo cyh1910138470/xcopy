@@ -1,5 +1,6 @@
 import request from "../../utils/request/index";
 import md5 from 'blueimp-md5';
+const router = require('../../utils/routerinterceptor/index');
 
 Component({
   /**
@@ -23,33 +24,36 @@ Component({
   },
 
   /**
-   * 组件的生命周期函数
+   * 关键：页面生命周期关联（只有这个 show 有效！）
+   * 当组件所在的页面显示时触发
+   */
+  pageLifetimes: {
+    show() {
+      this.calcStatusBarHeight();
+      console.log('pageLifetimes-show：组件所在页面显示了'); // 现在会打印
+      this.getuserInfo();
+    },
+    hide() {
+      console.log('pageLifetimes-hide：组件所在页面隐藏了');
+    }
+  },
+
+  /**
+   * 组件自身生命周期（删掉无效的 show 钩子）
    */
   lifetimes: {
-    // 组件初始化时执行（类似页面的 onLoad）
     attached() {
       this.calcStatusBarHeight();
       this.getuserInfo();
+      console.log('组件挂载完成（attached）');
     },
-
-    // 组件初次渲染完成时执行（类似页面的 onReady）
     ready() {
-      this.calcStatusBarHeight();
+      console.log('组件渲染完成（ready）');
     },
-
-    // 组件显示时执行（类似页面的 onShow）
-    show() {
-      this.calcStatusBarHeight();
-    },
-
-    // 组件隐藏时执行（类似页面的 onHide）
-    hide() {
-      console.log('mark: hide');
-    },
-
-    // 组件被销毁时执行（类似页面的 onUnload）
+    // 删掉！lifetimes 里的 show 是无效钩子，写了也不执行
+    // show() { ... }, 
     detached() {
-      console.log('mark: detached');
+      console.log('组件销毁（detached）');
     }
   },
 
@@ -57,103 +61,89 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    // 计算状态栏高度（与原逻辑一致）
     calcStatusBarHeight() {
       try {
-        // 获取系统信息
         const systemInfo = wx.getSystemInfoSync();
-        // 状态栏高度（px）= 导航栏顶部到屏幕顶部的距离
         const statusBarHeightPx = systemInfo.statusBarHeight;
-        
-        // 转换为 rpx（1px ≈ 2rpx，适配 750rpx 设计稿）
         const statusBarHeightRpx = statusBarHeightPx * 2;
-
-        // 更新数据
         this.setData({
           statusBarHeight: statusBarHeightRpx + 8,
           titleTop: statusBarHeightRpx - 30
         });
-
-        console.log('导航栏顶部到屏幕顶部距离（rpx）：', statusBarHeightRpx);
+        console.log('状态栏高度（rpx）：', statusBarHeightRpx);
       } catch (err) {
         console.error('获取状态栏高度失败：', err);
-        // 失败时使用默认值（多数手机为 20px = 40rpx）
-        this.setData({
-          statusBarHeight: 40,
-        });
+        this.setData({ statusBarHeight: 40 });
       }
     },
     getuserInfo() {
       this.setData({
-        username: wx.getStorageSync('user') ? wx.getStorageSync('user') : ''
-      })
+        username: wx.getStorageSync('user') || ''
+      });
     },
     onUserInput(e) {
-      this.setData({
-        user: e.detail  // 将输入框的值同步到 data.user
-      });
+      this.setData({ user: e.detail });
     },
     mousedown(e) {
-      console.log('tes', e.currentTarget.dataset.val);
-      this.setData({
-        isactive: e.currentTarget.dataset.val
-      })
+      console.log('mousedown：', e.currentTarget.dataset.val);
+      this.setData({ isactive: e.currentTarget.dataset.val });
     },
-    mouseup() {
+    mouseup(e) {
       console.log('mouseup');
-      this.setData({
-        isactive: ''
-      })
-    },
-    // 同步密码输入
-    onPassInput(e) {
-      console.log('同步密码输入', e);
-      this.setData({
-        pass: e.detail  // 将输入框的值同步到 data.pass
+      this.setData({ isactive: '' });
+      if (e.currentTarget.dataset.val == 1) {
+        return wx.showToast({
+          title: '页面还没写',
+          icon: 'error',
+          duration: 2000,
+          mask: true
+        });
+      }
+      router.navigateTo({
+        url: '/pages/funtions/styctl/index',
+        success(res) {
+          const eventChannel = res.eventChannel;
+          eventChannel.emit('sendData', { 
+            title: e.currentTarget.dataset.val == 1 ? '报表接收开关' : '系统管理' 
+          });
+        }
       });
+    },
+    onPassInput(e) {
+      console.log('密码输入：', e);
+      this.setData({ pass: e.detail });
     },
     handleClick() {
-      console.log('handleClickhandleClickhandleClick');
-      this.setData({
-        show: !this.data.show
-      })
+      console.log('handleClick');
+      this.setData({ show: !this.data.show });
     },
     async handleConfirm() {
-     const res = await request.post('/login', 
-      {
+      const res = await request.post('/login', {
         user: this.data.user,
         pass: md5(this.data.pass)
-      }, {
-        loading: true
-      });
-      console.log('res', res);
-      this.setData({
-        show: !this.data.show
-      });
-      wx.setStorageSync('user', this.data.user)
+      }, { loading: true });
+      console.log('登录结果：', res);
+      this.setData({ show: !this.data.show });
+      wx.setStorageSync('user', this.data.user);
       this.getuserInfo();
       wx.showToast({
         title: '登录成功！',
-        icon: 'success', // 原生成功图标（也可用 'none' 只显示文字）
-        duration: 2000, // 弹窗显示时间（ms）
-        mask: true // 是否显示遮罩，防止点击穿透
+        icon: 'success',
+        duration: 2000,
+        mask: true
       });
     },
-
-    // 页面原有的事件处理函数（如需保留，移至 methods 中）
+    // 注意：组件里的 onPullDownRefresh/onReachBottom 无效！
+    // 这些是页面（Page）的钩子，组件要通过 pageLifetimes 监听页面的
+    // 如需保留，需移到组件所在的页面 JS 中
     onPullDownRefresh() {
-      console.log('下拉刷新');
+      console.log('下拉刷新（组件中无效，需移到页面）');
     },
-
     onReachBottom() {
-      console.log('上拉触底');
+      console.log('上拉触底（组件中无效，需移到页面）');
     },
-
     onShareAppMessage() {
-      return {
-        title: '分享',
-        path: '/pages/index/index'
-      };
+      return { title: '分享', path: '/pages/index/index' };
     }
   }
 });

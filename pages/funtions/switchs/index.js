@@ -1,34 +1,20 @@
-// pages/funtions/styctl/index.js
+// pages/funtions/switchs/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    title: ''
+
   },
-  
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const eventChannel = this.getOpenerEventChannel();
-    eventChannel.on('sendData', (data) => {
-      this.setData({
-        title: data.title
-      })
-    });
+
   },
-  handleClick() {
-    wx.removeStorageSync('user');
-    wx.navigateBack();
-    wx.showToast({
-      title: '退出成功！',
-      icon: 'success',
-      duration: 2000,
-      mask: true
-    });
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
